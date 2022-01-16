@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class RoleSeeder extends Seeder
 {
+
+    const ROLES = [
+        ['name' => 'Boss',],
+        ['name' => 'Admin',],
+        ['name' => 'Main-Manager',],
+        ['name' => 'Manager',],
+        ['name' => 'Client',],
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -16,15 +25,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
 
-        $roles = [
-            ['name' => 'Boss',],
-            ['name' => 'Admin',],
-            ['name' => 'Main-Manager',],
-            ['name' => 'Manager',],
-            ['name' => 'Client',],
-        ];
-
-        foreach ($roles as $role) {
+        foreach (self::ROLES as $role) {
             $role['created_at'] = Carbon::now();
             $role['updated_at'] = Carbon::now();
 

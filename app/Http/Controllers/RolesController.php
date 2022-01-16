@@ -11,9 +11,10 @@ class RolesController extends Controller
 {
     public function create(Request $request)
     {
-//        Role::create(['name' => $request->input('name')]);
+        $name = $request->input('name');
 
-        return response()->json(['role' => $request->input('name')]);
+        Role::create(['name' => $name]);
+        return response()->json(['role' => $name]);
     }
 
     public function update(Request $request, Role $role)
@@ -23,10 +24,14 @@ class RolesController extends Controller
         return response()->json([$role]);
     }
 
+    public function delete(Role $role)
+    {
+        $role->delete();
+    }
+
     public function index()
     {
-        $role_id = 0;
-        //        return Role::all();
+        return Role::all()->first();
 //        return Role::find($role_id);
 //        Role::where('id', $role_id)->first();
 //        dd(Role::whereNotNull('created_at')->orWhere('id', '>', $role_id)->get());

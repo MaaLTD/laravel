@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'welcome']);
+Route::get('/role', [RolesController::class, 'index']);
 Route::post('/role/create', [RolesController::class, 'create']);
-Route::put('/role/update/{role}', [RolesController::class, 'update']);
+Route::put('/role/update/{role}' , [RolesController::class, 'update']);
 Route::get('/role/show/{role}', [RolesController::class, 'show']);
 Route::get('/role/users/{role}', [RolesController::class, 'users']);
